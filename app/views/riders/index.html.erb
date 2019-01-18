@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Registered Riders</h1>
+
+<tbody>
+  <table class="center">
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>City of origin</th>
+      <th>State of origin</th>
+    </tr>
+    <% @riders.each do |rider| %>
+    <tr>
+      <td><%= rider.first_name %></td>
+      <td><%= rider.last_name %></td>
+      <td><%= rider.city %></td>
+      <td><%= rider.state %></td>
+    </tr>
+    <% end %>
+  </table>
+
+</tbody>
+<br>

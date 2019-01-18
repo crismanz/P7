@@ -1,0 +1,59 @@
+<h1>Riders location</h1>
+<p>On the map you will see the riders location. Click on the marker to see the riders name.</p>
+
+<div id="map"></div>
+<script src='https://maps.googleapis.com/maps/api/js?key=API_KEY&callback=initMap'
+async defer></script>
+
+<script>
+  function initMap() {
+    var locations =[
+    ['Dustin Green', 40.00, -105.35],
+    ['Jason Finn', 39.95, -105.24],
+    ['Howard Thompson', 40.06, -105.26],
+    ['Maggie Lantz', 40.03, -105.23],
+    ['Lawrence Duran', 40.04, -105.23],
+    ['Irene Molina', 39.96, -105.22],
+    ['Nancy Garner', 39.98, -105.21],
+    ['Tara Taylor', 40.00, -105.25],
+    ['Alejandro Smith', 40.02, -105.26],
+    ['Tricia Renshaw', 40.02, -105.30],
+    ['Travis Cook', 40.01, -105.20],
+    ['Joan Brooks', 39.98, -105.24],
+    ['Joseph Rodgers', 39.99, -105.25],
+    ['Matthew Gregson', 40.01, -105.29],
+    ['Katie Dunlap', 39.97, -105.27],
+    ['Leo Howard', 39.97, -105.33],
+    ['Maria Baisden', 40.00, -105.29],
+    ['Sandy Townsend', 40.05, -105.30],
+    ['Melinda Stephenson', 39.99, -105.31],
+    ['Jason Nichols', 40.01, -105.32]
+
+  ];
+    // Create a map object and specify the DOM element
+    // for display.
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.02, lng: -105.26},
+      zoom: 12
+    });
+
+    // Create a marker and set its position.
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  }
+
+</script>

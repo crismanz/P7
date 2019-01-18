@@ -1,0 +1,35 @@
+<%= form_with(model: slogan, local: true) do |form| %>
+
+<div class="actions">
+  <div class="col-lg-2">
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name, placeholder: "John", :required => true %>
+  </div>
+  <div class="col-lg-2">
+    <%= form.label :last_name %><br>
+    <%= form.text_field :last_name, placeholder: "Smith", :required => true %>
+  </div>
+  <div class="col-lg-3">
+    <%= form.label :email %><br>
+    <%= form.text_field :email, placeholder: "john.smith@example.com", :required => true %>
+  </div>
+  <div class="col-lg-5">
+    <%= form.label :slogan %><br>
+    <%= form.text_area :slogan, placeholder: "Write your slogan idea under 50 characters..", :rows => 6, :cols => 50, :required => true %>
+  </div>
+</div>
+
+<% if slogan.errors.any? %>
+<div id="error_explanation">
+  <p><%= pluralize(slogan.errors.count, "error") %> prohibited this slogan from being saved:</p>
+  <div><% slogan.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+    <% end %>
+  </div>
+</div>
+<% end %>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>

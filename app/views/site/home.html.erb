@@ -1,0 +1,50 @@
+<div id="home">
+  <h1>BoulderBikeTour</h1>
+  <h2>Date: April 1, 2020</h2>
+  <h2>Where: Colorado at the foot of the Rocky Mountains</h2>
+  <p>Road bicycle racing is the cycle sport discipline of road cycling, held on paved roads. Road racing is the most popular professional form of bicycle racing, in terms of numbers of competitors, events and spectators. The two most common competition formats are mass start events, where riders start simultaneously (though sometimes with a handicap) and race to set finish point; and time trials, where individual riders or teams race a course alone against the clock. Stage races or "tours" take multiple days, and consist of several mass-start or time-trial stages ridden consecutively.</p>
+
+  <p>Professional racing has been most popular in Western Europe, centered historically on France, Spain, Italy and the Low Countries. Since the mid-1980s the sport has diversified with professional races now held on all continents of the globe. Semi-professional and amateur races are also held in many countries. The sport is governed by the Union Cycliste Internationale (UCI). As well as the UCI's annual World Championships for men and women, the biggest event is the Tour de France, a three-week race that can attract over 500,000 roadside supporters a day.</p>
+
+  <div class="container countdown">
+    <h2 id="head">BoulderBikeTour <br> Countdown:</h2>
+    <ul>
+      <li><span id="months"></span><hr class="w-100 clearfix d-md-none">months</li>
+      <li><span id="days"></span><hr class="w-100 clearfix d-md-none">days</li>
+      <li><span id="hours"></span><hr class="w-100 clearfix d-md-none">Hours</li>
+      <li><span id="minutes"></span><hr class="w-100 clearfix d-md-none">Minutes</li>
+      <li><span id="seconds"></span><hr class="w-100 clearfix d-md-none">Seconds</li>
+    </ul>
+  </div>
+
+  <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("April 1, 2020 10:00:00").getTime();
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+      // Get todays date and time
+      var now = new Date().getTime();
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      if (days > 30) {
+        var months = Math.floor(days / 30);
+        days = days % 30;
+      } else {
+        months = 0;
+      }
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("months").innerHTML = months;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+    }, 1000);
+  </script>
+
+</div>

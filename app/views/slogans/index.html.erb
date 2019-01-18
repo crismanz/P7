@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Slogan contast</h1>
+<div class="container row">
+  <div class="col-lg-8">
+    <h2>Win a new bicycle!!!</h2>
+    <p>We need a new slogan for our BoulderBikeTour. So we ask YOU to help us!</p>
+    <p>Submit here your slogan idea, first name, last name and email and you can win a brand new bicycle!</p>
+  </div>
+  <div class="col-lg-4">
+    <%= image_tag("cut.jpg", :alt => "bicycle", :class => "bike") %>
+  </div>
+</div>
+<br><button class="actions"><%= link_to 'Add a new slogan', new_slogan_path %></button>
+<tbody>
+  <table class="center">
+    <tr>
+      <th>Slogan</th>
+      <th>Name</th>
+    </tr>
+    <% @slogans.each do |slogan| %>
+    <tr>
+      <td><%= slogan.slogan %></td>
+      <td><%= slogan.first_name %></td>
+    </tr>
+    <% end %>
+  </table>
+</tbody>
